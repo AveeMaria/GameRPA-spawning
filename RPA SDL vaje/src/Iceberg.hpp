@@ -17,7 +17,7 @@ private:
     SDL_Texture* objTexture = TextureManager::LoadTexture("assets/iceberg.png");
     SDL_Rect srcRect, destRect;
 
-    bool showHitboxes = true;
+    bool showHitboxes = false;
 public:
     //random x,y
     Iceberg();
@@ -30,7 +30,7 @@ public:
     void izpis();
     void Render();
     void Update();
-    //int ReturnID() { return ID; } // vrne ID
+    int ReturnID() { return ID; } // vrne ID
 };
 
 int rendom(int n,int x) {

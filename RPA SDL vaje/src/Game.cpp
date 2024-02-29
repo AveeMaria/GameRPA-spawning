@@ -48,9 +48,13 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		for (int i = 0; i < 5; ++i) {
 			ledenagora = new Iceberg;
 			ledenagora->izpis();
-			//for (auto e : LedeneGore) {
-
-			//}
+			//idk neki da se nebi podvojila
+			/*
+			for (auto e : LedeneGore) {
+				if (e->ReturnID() == ledenagora->ReturnID()) {
+					ledenagora = new Iceberg;
+				}
+			}*/
 			LedeneGore.push_back(ledenagora);
 		}
 	}
@@ -83,7 +87,6 @@ void Game::handleEvents() {
 void Game::update() {
 	player->Update();
 	enemy->Update();
-
 	
 	for (Iceberg*& e : LedeneGore) {
 		e->Update();
