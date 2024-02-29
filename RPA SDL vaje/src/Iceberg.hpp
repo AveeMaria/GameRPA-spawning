@@ -43,8 +43,8 @@ Iceberg::Iceberg()
 {
     //srand(time(NULL));
     ID = rendom(900000, 100000);
-    xpos = rendom(16, 0) * 50;
-    ypos = rendom(12, 0) * 50;/*
+    xpos = (float)rendom(16, 0) * 50;
+    ypos = (float)rendom(12, 0) * 50;/*
     ID = rand() % 900000 + 100000;
     xpos = (float)(rand() % 16) * 50;
     ypos = (float)(rand() % 12) * 50;*/
@@ -85,12 +85,13 @@ void Iceberg::Update()
     destRect.w = srcRect.w;
     destRect.h = srcRect.h;
 
+
     if (rand() % 2) {
         short a = 0;
         a=rand() % 3 - 1;
         if (xpos <= WINDOW_WIDTH) {
             if (xpos + 2*a > WINDOW_WIDTH - srcRect.w)
-                xpos = WINDOW_WIDTH - srcRect.w;
+                xpos = (float) WINDOW_WIDTH - srcRect.w;
             else if (xpos + 2 *a < 0)
                 xpos = 0;
             else xpos += 2 *a;
@@ -101,7 +102,7 @@ void Iceberg::Update()
         a = rand() % 3 - 1;
         if (ypos <= WINDOW_HEIGHT) {
             if (ypos + 2 * a > WINDOW_HEIGHT - srcRect.h)
-                ypos = WINDOW_HEIGHT - srcRect.h;
+                ypos = (float) WINDOW_HEIGHT - srcRect.h;
             else if (ypos + 2 * a < 0)
                 ypos = 0;
             else ypos += 2 * a;
