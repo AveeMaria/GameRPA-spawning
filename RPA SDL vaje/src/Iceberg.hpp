@@ -11,7 +11,7 @@
 class Iceberg
 {
 private:
-    int ID, oknoW = 800, oknoH = 600;
+    int ID, WINDOW_WIDTH = 800, WINDOW_HEIGHT = 600;
     float xpos=0, ypos=0;
 
     SDL_Texture* objTexture = TextureManager::LoadTexture("assets/iceberg.png");
@@ -84,6 +84,29 @@ void Iceberg::Update()
     destRect.y = (int)ypos;
     destRect.w = srcRect.w;
     destRect.h = srcRect.h;
+
+    if (rand() % 2) {
+        short a = 0;
+        a=rand() % 3 - 1;
+        if (xpos <= WINDOW_WIDTH) {
+            if (xpos + 2*a > WINDOW_WIDTH - srcRect.w)
+                xpos = WINDOW_WIDTH - srcRect.w;
+            else if (xpos + 2 *a < 0)
+                xpos = 0;
+            else xpos += 2 *a;
+        }
+    }
+    if (rand() % 2) {
+        short a = 0;
+        a = rand() % 3 - 1;
+        if (ypos <= WINDOW_HEIGHT) {
+            if (ypos + 2 * a > WINDOW_HEIGHT - srcRect.h)
+                ypos = WINDOW_HEIGHT - srcRect.h;
+            else if (ypos + 2 * a < 0)
+                ypos = 0;
+            else ypos += 2 * a;
+        }
+    }
 }
 
 void Iceberg::izpis()

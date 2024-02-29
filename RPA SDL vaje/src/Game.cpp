@@ -39,7 +39,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	}
 
 	player = new GameObject("assets/player.png", 0, 0);
-	enemy = new GameObject("assets/enemy.png", 200, 200);
+	enemy = new GameObject("assets/enemy.png", 300, 300);
 	map = new Map();
 	
 	{

@@ -39,19 +39,13 @@ void GameObject::Render()
 
 void GameObject::increaseX(float x)
 {
-    if (xpos <= WINDOW_WIDTH) { //800 je sirina okna
+    if (xpos <= WINDOW_WIDTH) {
         if (xpos + x > WINDOW_WIDTH - srcRect.w)
-            xpos = WINDOW_WIDTH - srcRect.w; //150 je sirina teksture
+            xpos = WINDOW_WIDTH - srcRect.w;
         else if (xpos + x < 0)
             xpos = 0;
         else xpos += x;
     }
-    /*
-    float newX = xpos + x;
-    //std::cout << "xpos: " << xpos<<"\n";
-    if (newX >= 0 && newX <= WINDOW_WIDTH - srcRect.w) {
-        xpos = newX;
-    }*/
 }
 
 void GameObject::increaseY(float y) 
@@ -63,10 +57,4 @@ void GameObject::increaseY(float y)
             ypos = 0;
         else ypos += y;
     }
-    /*
-    float newY = ypos + y;
-    //std::cout << "xpos: " << ypos << "\n";
-    if (newY >= 0 && newY <= WINDOW_HEIGHT - srcRect.h) {
-        ypos = newY;
-    }*/
 }

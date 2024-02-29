@@ -22,6 +22,6 @@ public:
 	const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 private:
 	bool isRunning = false;
-	int cnt = 0;
+	uint32_t cnt = 0;
 	SDL_Window *window;
 };
