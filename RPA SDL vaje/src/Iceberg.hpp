@@ -6,7 +6,7 @@
 #include <vector>
 #include <time.h>
 
-//int IcebergW = 50, IcebergH = 50, 
+//int IcebergW = 50, IcebergH = 50
 
 class Iceberg
 {
@@ -32,17 +32,26 @@ public:
     void Update();
 };
 
+int rendom(int n,int x) {
+    //srand(time(NULL));
+    int a = (rand() % n + x);
+    return a;
+}
+
 Iceberg::Iceberg()
 {
+    //srand(time(NULL));
+    ID = rendom(900000, 100000);
+    xpos = rendom(16, 0) * 50;
+    ypos = rendom(12, 0) * 50;/*
     ID = rand() % 900000 + 100000;
     xpos = (float)(rand() % 16) * 50;
-    ypos = (float)(rand() % 12) * 50;
+    ypos = (float)(rand() % 12) * 50;*/
 }
 
 //podan x in y
 Iceberg::Iceberg(float x, float y)
 {
-    srand(time(NULL));
     ID = rand() % 900000 + 100000;
     xpos = x;
     ypos = y;

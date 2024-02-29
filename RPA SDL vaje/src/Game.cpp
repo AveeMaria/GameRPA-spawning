@@ -54,7 +54,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	
 }
 
-void Game::handleEvents() {
+void Game::handleEvents() {/*
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
 		switch (event.type) {
@@ -90,7 +90,7 @@ void Game::handleEvents() {
 			//mousedown = false;
 			break;
 		}
-	}
+	}*/
 	
 	//SDL_GetMouseState(&mx, &my);
 	
@@ -116,24 +116,24 @@ void Game::handleEvents() {
 
 	
 	//martin
-	/*
-	const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+	SDL_PumpEvents();
+	
 	if (currentKeyStates[SDL_SCANCODE_W]) {
 		std::cout << "W\n";
-		player->increaseY(-5);
+		player->increaseY(-2.5);
 	}
 	if (currentKeyStates[SDL_SCANCODE_S]) {
 		std::cout << "S\n";
-		player->increaseY(5);
+		player->increaseY(2.5);
 	}
 	if (currentKeyStates[SDL_SCANCODE_A]) {
 		std::cout << "A\n";
-		player->increaseX(-5);
+		player->increaseX(-2.5);
 	}
 	if (currentKeyStates[SDL_SCANCODE_D]) {
 		std::cout << "D\n";
-		player->increaseX(5);
-	}*/
+		player->increaseX(2.5);
+	}
 }
 
 void Game::update() {

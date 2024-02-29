@@ -19,7 +19,7 @@ public:
 	void clean();
 
 	static SDL_Renderer* renderer;
-
+	const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 private:
 	bool isRunning = false;
 	int cnt = 0;
