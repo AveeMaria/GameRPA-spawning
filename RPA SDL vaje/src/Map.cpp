@@ -17,11 +17,11 @@ int lvl1[12][16] = {
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 };
 
-int MaxIcebergs(int lvl[12][16], float IcebergPercentage) {
+int Map::MaxIcebergs(float IcebergPercentage) {
 	int water = 0;
 	for (int i = 0; i < 12; ++i) {
 		for (int j = 0; j < 16; ++j) {
-			if (lvl[i][j] == 0) {
+			if (map[i][j] == 0) {
 				water++;
 			}
 		}

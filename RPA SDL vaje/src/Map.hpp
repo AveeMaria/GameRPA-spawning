@@ -17,7 +17,7 @@ public:
 
 	void LoadMap(int [12][16]);
 	void DrawMap();
-
+	int MaxIcebergs(float);
 	//vector superiority???
 	int map[12][16];
 };

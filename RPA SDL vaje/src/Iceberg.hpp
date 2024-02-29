@@ -12,31 +12,49 @@ class Iceberg
 {
 private:
     int ID, oknoW = 800, oknoH = 600;
-    float xpos, ypos;
+    float xpos=0, ypos=0;
 
-    SDL_Texture* objTexture;
+    SDL_Texture* objTexture = TextureManager::LoadTexture("assets/iceberg.png");
     SDL_Rect srcRect, destRect;
 
-    bool showHitboxes = false;
+    bool showHitboxes = true;
 public:
     //random x,y
-    Iceberg(const char* texturesheet, float x, float y);
-    ~Iceberg();
+    Iceberg();
     //podan x,y
-    Iceberg() {}
+    Iceberg(float x, float y);
+    //idk lol
+    Iceberg(const char* texturesheet);
+    ~Iceberg();    
+
     void izpis();
     void Render();
     void Update();
 };
 
-Iceberg::Iceberg(const char* texturesheet, float x, float y)
+Iceberg::Iceberg()
 {
-    objTexture = TextureManager::LoadTexture(texturesheet);
+    ID = rand() % 900000 + 100000;
+    xpos = (float)(rand() % 16) * 50;
+    ypos = (float)(rand() % 12) * 50;
+}
+
+//podan x in y
+Iceberg::Iceberg(float x, float y)
+{
+    srand(time(NULL));
     ID = rand() % 900000 + 100000;
     xpos = x;
     ypos = y;
-    //xpos = rand() % oknoW;
-    //ypos = rand() % oknoH;
+}
+
+//idk
+Iceberg::Iceberg(const char* texturesheet)
+{
+    objTexture = TextureManager::LoadTexture(texturesheet);
+    ID = rand() % 900000 + 100000;
+    xpos = (float)(rand() % 16) * 50;
+    ypos = (float)(rand() % 12) * 50;
 }
 
 Iceberg::~Iceberg()
@@ -72,15 +90,6 @@ void Iceberg::Render()
     }
 }
 
-//podamo x in y
-/*
-Iceberg::Iceberg(float x, float y)
-{
-    ID = rand() % 900000 + 100000;
-    xpos = x;
-    ypos = y;
-}*/
-
 //izpise cel vektor
 /*
 void VectorIzpis(std::vector<Iceberg>& v)
@@ -90,6 +99,6 @@ void VectorIzpis(std::vector<Iceberg>& v)
     }
 }*/
 
-//std::vector<Iceberg> v(5);
+
 
 //VectorIzpis(v);
