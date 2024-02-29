@@ -48,74 +48,15 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		for (int i = 0; i < 5; ++i) {
 			ledenagora = new Iceberg;
 			ledenagora->izpis();
+			//for (auto e : LedeneGore) {
+
+			//}
 			LedeneGore.push_back(ledenagora);
 		}
 	}
-	
 }
 
-void Game::handleEvents() {/*
-	SDL_Event event;
-	while (SDL_PollEvent(&event)) {
-		switch (event.type) {
-		case SDL_QUIT:
-			isRunning = false;
-			break;
-		case SDL_KEYDOWN:
-			switch (event.key.keysym.sym) {
-			case SDLK_ESCAPE:
-				isRunning = false;
-				break;
-			case SDLK_w:
-				player->increaseY(-50);
-				std::cout << "W\n";
-				break;
-			case SDLK_s:
-				player->increaseY(50);
-				std::cout << "S\n";
-				break;
-			case SDLK_a:
-				player->increaseX(-50);
-				std::cout << "A\n";
-				break;
-			case SDLK_d:
-				player->increaseX(50);
-				std::cout << "D\n";
-				break;
-			}
-
-		case SDL_MOUSEBUTTONDOWN:
-			break;
-		case SDL_MOUSEBUTTONUP:
-			//mousedown = false;
-			break;
-		}
-	}*/
-	
-	//SDL_GetMouseState(&mx, &my);
-	
-	/*
-	//klemen
-	const Uint8* keystate = SDL_GetKeyboardState(NULL);
-	if (keystate[SDL_SCANCODE_W] && !keystate[SDL_SCANCODE_S]) {
-		std::cout << "W\n";
-		player->increaseY(-5);
-	}
-	else if (!keystate[SDL_SCANCODE_W] && keystate[SDL_SCANCODE_S]) {
-		std::cout << "S\n";
-		player->increaseY(5);
-	}
-	if (keystate[SDL_SCANCODE_A] && !keystate[SDL_SCANCODE_D]) {
-		std::cout << "A\n";
-		player->increaseX(-5);
-	}
-	else if (!keystate[SDL_SCANCODE_A] && keystate[SDL_SCANCODE_D]) {
-		std::cout << "D\n";
-		player->increaseX(5);
-	}*/
-
-	
-	//martin
+void Game::handleEvents() {
 	SDL_PumpEvents();
 	
 	if (currentKeyStates[SDL_SCANCODE_W]) {
@@ -134,6 +75,9 @@ void Game::handleEvents() {/*
 		std::cout << "D\n";
 		player->increaseX(2.5);
 	}
+	if (currentKeyStates[SDL_SCANCODE_ESCAPE]) {
+		isRunning = false;
+	}
 }
 
 void Game::update() {
@@ -144,10 +88,6 @@ void Game::update() {
 	for (Iceberg*& e : LedeneGore) {
 		e->Update();
 	}
-	/*
-	for(int i = 0; i > 5; ++i) {
-		IceBergs[i]->Update();
-	}*/
 }
 
 void Game::render() {
@@ -156,15 +96,10 @@ void Game::render() {
 	map->DrawMap();
 	player->Render();
 	enemy->Render();
-
 	
 	for (auto e : LedeneGore) {
 		e->Render();
 	}
-	/*
-	for (int i = 0; i > 5; ++i) {
-		IceBergs[i]->Render();
-	}*/
 
 	SDL_RenderPresent(renderer);
 }

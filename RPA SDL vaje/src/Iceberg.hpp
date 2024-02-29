@@ -30,6 +30,7 @@ public:
     void izpis();
     void Render();
     void Update();
+    //int ReturnID() { return ID; } // vrne ID
 };
 
 int rendom(int n,int x) {
@@ -107,7 +108,5 @@ void VectorIzpis(std::vector<Iceberg>& v)
         v[i].izpis();
     }
 }*/
-
-
 
 //VectorIzpis(v);
